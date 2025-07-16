@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
 import * as XLSX from 'xlsx';
 // import jsPDF from 'jspdf';
 import 'jspdf-autotable';
