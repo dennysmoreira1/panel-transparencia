@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
 import {
     PieChart, Pie, Cell, Tooltip as ChartTooltip,
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer,

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../../context/AuthContext";
 import {
     Search, Plus, Download, Eye, Edit, Trash2,
     Calendar, DollarSign, FileText,

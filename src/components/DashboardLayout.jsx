@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 export default function DashboardLayout() {
-    const { logout, user, isAdmin } = useAuth();
+    const { logout, isAdmin } = useAuth();
     const location = useLocation();
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
