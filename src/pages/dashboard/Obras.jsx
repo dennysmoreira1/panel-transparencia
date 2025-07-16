@@ -9,7 +9,6 @@ import {
 } from 'lucide-react';
 
 export default function Obras() {
-    const { user } = useAuth();
     const [obras, setObras] = useState([]);
     const [filtroNombre, setFiltroNombre] = useState('');
     const [filtroSector, setFiltroSector] = useState('');
