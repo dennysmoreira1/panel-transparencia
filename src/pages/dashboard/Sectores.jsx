@@ -17,7 +17,7 @@ const Sectores = () => {
         const fetchSectores = async () => {
             try {
                 setLoading(true);
-                const res = await authFetch('http://localhost:5000/api/sectores');
+                const res = await authFetch(`${process.env.REACT_APP_API_URL}/api/sectores`);
                 const data = await res.json();
                 setSectores(Array.isArray(data) ? data : []);
                 setError(null);

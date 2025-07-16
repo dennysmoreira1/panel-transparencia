@@ -11,7 +11,7 @@ const BudgetChart = () => {
     const [chartType, setChartType] = useState('bar');
 
     useEffect(() => {
-        fetch('http://localhost:5000/presupuesto') // Ajusta la URL si es necesario
+        fetch(`${process.env.REACT_APP_API_URL}/presupuesto`)
             .then((response) => response.json())
             .then((data) => {
                 console.log('Datos recibidos:', data);

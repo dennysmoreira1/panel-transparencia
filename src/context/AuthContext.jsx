@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
     const fetchPerfil = useCallback(async (token) => {
         try {
-            const res = await fetch('http://localhost:5000/api/auth/perfil', {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/perfil`, {
                 headers: { Authorization: `Bearer ${token}` },
                 credentials: 'include',
             });
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = useCallback(async (email, password) => {
         try {
-            const res = await fetch('http://localhost:5000/api/auth/login', {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = useCallback(async () => {
         try {
-            await fetch('http://localhost:5000/api/auth/logout', {
+            await fetch(`${process.env.REACT_APP_API_URL}/api/auth/logout`, {
                 method: 'POST',
                 credentials: 'include',
             });
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
 
     const refreshAccessToken = useCallback(async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/auth/refresh', {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/refresh`, {
                 method: 'POST',
                 credentials: 'include',
             });

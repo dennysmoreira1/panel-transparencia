@@ -13,7 +13,7 @@ export default function ModalArchivosObra({ obra, onClose }) {
     useEffect(() => {
         const fetchArchivos = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/obras/${obra.id}/archivos`, {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/obras/${obra.id}/archivos`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setArchivos(response.data);
