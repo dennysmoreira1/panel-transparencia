@@ -6,7 +6,7 @@ import {
     LineChart, Line, AreaChart, Area
 } from 'recharts';
 import {
-    TrendingUp, Building2, CheckCircle, Clock,
+    TrendingUp, Building2, CheckCircle,
     DollarSign, Users, FileText, BarChart3
 } from 'lucide-react';
 
@@ -66,7 +66,7 @@ const Estadisticas = () => {
             setData(datosEjemplo);
             setLoading(false);
         }, 1000);
-    }, []);
+    }, [datosEjemplo]);
 
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('es-CO', {

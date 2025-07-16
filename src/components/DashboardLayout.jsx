@@ -5,7 +5,6 @@ import {
     Home, ClipboardList, Building2, Layers3, FolderKanban, FileText,
     BarChart3, Users, FileBarChart2, LogOut, Menu, X
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export default function DashboardLayout() {
     const { logout, user, isAdmin } = useAuth();

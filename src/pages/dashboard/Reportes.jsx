@@ -5,7 +5,7 @@ import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import {
-    FileText, Download, Eye, Plus, Search, Filter,
+    FileText, Download, Eye, Plus, Search,
     BarChart3, TrendingUp, Building2, DollarSign,
     CheckCircle, Clock, AlertCircle, Calendar
 } from 'lucide-react';
@@ -120,7 +120,7 @@ const Reportes = () => {
             setReportes(reportesEjemplo);
             setLoading(false);
         }, 1000);
-    }, []);
+    }, [reportesEjemplo]);
 
     const reportesFiltrados = useMemo(() => {
         return reportes.filter((r) => {

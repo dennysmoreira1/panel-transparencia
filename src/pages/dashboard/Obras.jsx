@@ -5,7 +5,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import {
     Building2, FileText, Download, Upload, Eye,
-    MapPin, Calendar, DollarSign, TrendingUp
+    MapPin, DollarSign, TrendingUp
 } from 'lucide-react';
 
 export default function Obras() {
@@ -97,7 +97,7 @@ export default function Obras() {
             setObras(obrasEjemplo);
             setLoading(false);
         }, 1000);
-    }, []);
+    }, [obrasEjemplo]);
 
     const obrasFiltradas = obras.filter((obra) =>
         obra.nombre.toLowerCase().includes(filtroNombre.toLowerCase()) &&

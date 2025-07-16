@@ -34,7 +34,7 @@ const Usuarios = () => {
                 setLoading(false);
             }, 500);
         }
-    }, [canAccess]);
+    }, [canAccess, usuariosEjemplo]);
 
     const exportarExcel = () => {
         const worksheet = XLSX.utils.json_to_sheet(usuarios);

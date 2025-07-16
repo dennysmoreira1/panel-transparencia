@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import {
-    Search, Filter, Plus, Download, Eye, Edit, Trash2,
-    Calendar, DollarSign, MapPin, Building2, FileText,
-    TrendingUp, AlertCircle, CheckCircle, Clock
+    Search, Plus, Download, Eye, Edit, Trash2,
+    Calendar, DollarSign, FileText,
+    AlertCircle, CheckCircle, Clock
 } from "lucide-react";
 
 const Contrataciones = () => {
@@ -99,7 +99,7 @@ const Contrataciones = () => {
             setContratos(contratosEjemplo);
             setLoading(false);
         }, 800);
-    }, []);
+    }, [contratosEjemplo]);
 
     const contratosFiltrados = contratos.filter(contrato => {
         const cumpleFiltro = contrato.titulo.toLowerCase().includes(filtro.toLowerCase()) ||
