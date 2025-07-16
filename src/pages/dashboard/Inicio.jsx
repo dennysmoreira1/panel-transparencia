@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import {
     Building2, FileText, Users, TrendingUp, AlertCircle,
-    CheckCircle, Clock, DollarSign, MapPin, Calendar,
-    Eye, Download, Share2, BarChart3
+    CheckCircle, Clock, DollarSign, Calendar,
+    Download, BarChart3
 } from 'lucide-react';
 
 export default function Inicio() {

@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 
 const Contrataciones = () => {
-    const { user } = useAuth();
+    // const { user } = useAuth(); // Eliminar si no se usa
     const [contratos, setContratos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [filtro, setFiltro] = useState("");
@@ -25,81 +25,80 @@ const Contrataciones = () => {
         sector: "infraestructura"
     });
 
-    // Datos de ejemplo realistas
-    const contratosEjemplo = [
-        {
-            id: 1,
-            titulo: "Construcción de Centro Comunitario Sector Norte",
-            descripcion: "Construcción de centro comunitario con salón múltiple, oficinas administrativas y áreas recreativas",
-            empresa: "Constructora Norte S.A.",
-            monto: 45000000,
-            fechaInicio: "2024-01-15",
-            fechaFin: "2024-06-30",
-            estado: "en_proceso",
-            sector: "infraestructura",
-            progreso: 35,
-            documentos: 8
-        },
-        {
-            id: 2,
-            titulo: "Mantenimiento de Vías Principales",
-            descripcion: "Servicios de mantenimiento y reparación de vías principales del municipio",
-            empresa: "Vías y Construcciones Ltda.",
-            monto: 28000000,
-            fechaInicio: "2024-01-10",
-            fechaFin: "2024-12-31",
-            estado: "aprobado",
-            sector: "transporte",
-            progreso: 0,
-            documentos: 12
-        },
-        {
-            id: 3,
-            titulo: "Equipamiento de Biblioteca Municipal",
-            descripcion: "Adquisición de mobiliario, equipos informáticos y material bibliográfico",
-            empresa: "Mobiliario Educativo S.A.",
-            monto: 15000000,
-            fechaInicio: "2024-02-01",
-            fechaFin: "2024-03-31",
-            estado: "finalizado",
-            sector: "educacion",
-            progreso: 100,
-            documentos: 15
-        },
-        {
-            id: 4,
-            titulo: "Sistema de Alumbrado Público LED",
-            descripcion: "Instalación de sistema de alumbrado público con tecnología LED en zonas residenciales",
-            empresa: "Energía Limpia Ltda.",
-            monto: 32000000,
-            fechaInicio: "2024-01-20",
-            fechaFin: "2024-05-15",
-            estado: "en_proceso",
-            sector: "servicios",
-            progreso: 60,
-            documentos: 10
-        },
-        {
-            id: 5,
-            titulo: "Ampliación de Red de Agua Potable",
-            descripcion: "Extensión de red de agua potable a barrios periféricos",
-            empresa: "Acueductos Regionales S.A.",
-            monto: 55000000,
-            fechaInicio: "2024-02-15",
-            fechaFin: "2024-08-30",
-            estado: "pendiente",
-            sector: "servicios",
-            progreso: 0,
-            documentos: 6
-        }
-    ];
-
     useEffect(() => {
+        // Datos de ejemplo realistas
+        const contratosEjemplo = [
+            {
+                id: 1,
+                titulo: "Construcción de Centro Comunitario Sector Norte",
+                descripcion: "Construcción de centro comunitario con salón múltiple, oficinas administrativas y áreas recreativas",
+                empresa: "Constructora Norte S.A.",
+                monto: 45000000,
+                fechaInicio: "2024-01-15",
+                fechaFin: "2024-06-30",
+                estado: "en_proceso",
+                sector: "infraestructura",
+                progreso: 35,
+                documentos: 8
+            },
+            {
+                id: 2,
+                titulo: "Mantenimiento de Vías Principales",
+                descripcion: "Servicios de mantenimiento y reparación de vías principales del municipio",
+                empresa: "Vías y Construcciones Ltda.",
+                monto: 28000000,
+                fechaInicio: "2024-01-10",
+                fechaFin: "2024-12-31",
+                estado: "aprobado",
+                sector: "transporte",
+                progreso: 0,
+                documentos: 12
+            },
+            {
+                id: 3,
+                titulo: "Equipamiento de Biblioteca Municipal",
+                descripcion: "Adquisición de mobiliario, equipos informáticos y material bibliográfico",
+                empresa: "Mobiliario Educativo S.A.",
+                monto: 15000000,
+                fechaInicio: "2024-02-01",
+                fechaFin: "2024-03-31",
+                estado: "finalizado",
+                sector: "educacion",
+                progreso: 100,
+                documentos: 15
+            },
+            {
+                id: 4,
+                titulo: "Sistema de Alumbrado Público LED",
+                descripcion: "Instalación de sistema de alumbrado público con tecnología LED en zonas residenciales",
+                empresa: "Energía Limpia Ltda.",
+                monto: 32000000,
+                fechaInicio: "2024-01-20",
+                fechaFin: "2024-05-15",
+                estado: "en_proceso",
+                sector: "servicios",
+                progreso: 60,
+                documentos: 10
+            },
+            {
+                id: 5,
+                titulo: "Ampliación de Red de Agua Potable",
+                descripcion: "Extensión de red de agua potable a barrios periféricos",
+                empresa: "Acueductos Regionales S.A.",
+                monto: 55000000,
+                fechaInicio: "2024-02-15",
+                fechaFin: "2024-08-30",
+                estado: "pendiente",
+                sector: "servicios",
+                progreso: 0,
+                documentos: 6
+            }
+        ];
         setTimeout(() => {
             setContratos(contratosEjemplo);
             setLoading(false);
         }, 800);
-    }, [contratosEjemplo]);
+    }, []);
 
     const contratosFiltrados = contratos.filter(contrato => {
         const cumpleFiltro = contrato.titulo.toLowerCase().includes(filtro.toLowerCase()) ||

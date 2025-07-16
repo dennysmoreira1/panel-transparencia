@@ -22,105 +22,103 @@ const Reportes = () => {
         return user && (user.rol === "admin" || user.rol === "editor");
     }, [user]);
 
-    // Datos de ejemplo realistas y completos
-    const reportesEjemplo = [
-        {
-            id: 1,
-            titulo: "Reporte de Contrataciones Q1 2024",
-            tipo: "contrataciones",
-            fecha: "2024-03-15",
-            autor: "admin@transparencia.com",
-            estado: "completado",
-            descripcion: "Análisis detallado de contrataciones del primer trimestre con 18 contratos activos",
-            archivo: "contrataciones-q1-2024.pdf",
-            tamaño: "2.3 MB"
-        },
-        {
-            id: 2,
-            titulo: "Presupuesto Ejecutado 2024",
-            tipo: "presupuesto",
-            fecha: "2024-02-28",
-            autor: "editor1@transparencia.com",
-            estado: "completado",
-            descripcion: "Estado actual del presupuesto municipal con ejecución del 65%",
-            archivo: "presupuesto-2024.pdf",
-            tamaño: "1.8 MB"
-        },
-        {
-            id: 3,
-            titulo: "Obras en Ejecución - Marzo 2024",
-            tipo: "obras",
-            fecha: "2024-03-10",
-            autor: "admin@transparencia.com",
-            estado: "completado",
-            descripcion: "Inventario completo de obras públicas en desarrollo",
-            archivo: "obras-marzo-2024.pdf",
-            tamaño: "3.1 MB"
-        },
-        {
-            id: 4,
-            titulo: "Análisis de Transparencia Q4 2023",
-            tipo: "transparencia",
-            fecha: "2024-01-15",
-            autor: "editor2@transparencia.com",
-            estado: "completado",
-            descripcion: "Evaluación de transparencia y rendición de cuentas",
-            archivo: "transparencia-q4-2023.pdf",
-            tamaño: "2.7 MB"
-        },
-        {
-            id: 5,
-            titulo: "Reporte de Gestión Anual 2023",
-            tipo: "gestion",
-            fecha: "2024-01-31",
-            autor: "admin@transparencia.com",
-            estado: "completado",
-            descripcion: "Resumen ejecutivo de la gestión municipal 2023",
-            archivo: "gestion-2023.pdf",
-            tamaño: "4.2 MB"
-        },
-        {
-            id: 6,
-            titulo: "Contrataciones Q2 2024",
-            tipo: "contrataciones",
-            fecha: "2024-04-01",
-            autor: "editor1@transparencia.com",
-            estado: "en_proceso",
-            descripcion: "Reporte en preparación de contrataciones del segundo trimestre",
-            archivo: null,
-            tamaño: null
-        },
-        {
-            id: 7,
-            titulo: "Auditoría de Obras Públicas",
-            tipo: "obras",
-            fecha: "2024-03-20",
-            autor: "admin@transparencia.com",
-            estado: "en_proceso",
-            descripcion: "Auditoría interna de obras públicas en ejecución",
-            archivo: null,
-            tamaño: null
-        },
-        {
-            id: 8,
-            titulo: "Presupuesto Q2 2024",
-            tipo: "presupuesto",
-            fecha: "2024-04-05",
-            autor: "editor2@transparencia.com",
-            estado: "pendiente",
-            descripcion: "Planificación presupuestaria del segundo trimestre",
-            archivo: null,
-            tamaño: null
-        }
-    ];
-
     useEffect(() => {
-        // Simular carga de datos
+        // Datos de ejemplo realistas y completos
+        const reportesEjemplo = [
+            {
+                id: 1,
+                titulo: "Reporte de Contrataciones Q1 2024",
+                tipo: "contrataciones",
+                fecha: "2024-03-15",
+                autor: "admin@transparencia.com",
+                estado: "completado",
+                descripcion: "Análisis detallado de contrataciones del primer trimestre con 18 contratos activos",
+                archivo: "contrataciones-q1-2024.pdf",
+                tamaño: "2.3 MB"
+            },
+            {
+                id: 2,
+                titulo: "Presupuesto Ejecutado 2024",
+                tipo: "presupuesto",
+                fecha: "2024-02-28",
+                autor: "editor1@transparencia.com",
+                estado: "completado",
+                descripcion: "Estado actual del presupuesto municipal con ejecución del 65%",
+                archivo: "presupuesto-2024.pdf",
+                tamaño: "1.8 MB"
+            },
+            {
+                id: 3,
+                titulo: "Obras en Ejecución - Marzo 2024",
+                tipo: "obras",
+                fecha: "2024-03-10",
+                autor: "admin@transparencia.com",
+                estado: "completado",
+                descripcion: "Inventario completo de obras públicas en desarrollo",
+                archivo: "obras-marzo-2024.pdf",
+                tamaño: "3.1 MB"
+            },
+            {
+                id: 4,
+                titulo: "Análisis de Transparencia Q4 2023",
+                tipo: "transparencia",
+                fecha: "2024-01-15",
+                autor: "editor2@transparencia.com",
+                estado: "completado",
+                descripcion: "Evaluación de transparencia y rendición de cuentas",
+                archivo: "transparencia-q4-2023.pdf",
+                tamaño: "2.7 MB"
+            },
+            {
+                id: 5,
+                titulo: "Reporte de Gestión Anual 2023",
+                tipo: "gestion",
+                fecha: "2024-01-31",
+                autor: "admin@transparencia.com",
+                estado: "completado",
+                descripcion: "Resumen ejecutivo de la gestión municipal 2023",
+                archivo: "gestion-2023.pdf",
+                tamaño: "4.2 MB"
+            },
+            {
+                id: 6,
+                titulo: "Contrataciones Q2 2024",
+                tipo: "contrataciones",
+                fecha: "2024-04-01",
+                autor: "editor1@transparencia.com",
+                estado: "en_proceso",
+                descripcion: "Reporte en preparación de contrataciones del segundo trimestre",
+                archivo: null,
+                tamaño: null
+            },
+            {
+                id: 7,
+                titulo: "Auditoría de Obras Públicas",
+                tipo: "obras",
+                fecha: "2024-03-20",
+                autor: "admin@transparencia.com",
+                estado: "en_proceso",
+                descripcion: "Auditoría interna de obras públicas en ejecución",
+                archivo: null,
+                tamaño: null
+            },
+            {
+                id: 8,
+                titulo: "Presupuesto Q2 2024",
+                tipo: "presupuesto",
+                fecha: "2024-04-05",
+                autor: "editor2@transparencia.com",
+                estado: "pendiente",
+                descripcion: "Planificación presupuestaria del segundo trimestre",
+                archivo: null,
+                tamaño: null
+            }
+        ];
         setTimeout(() => {
             setReportes(reportesEjemplo);
             setLoading(false);
         }, 1000);
-    }, [reportesEjemplo]);
+    }, []);
 
     const reportesFiltrados = useMemo(() => {
         return reportes.filter((r) => {

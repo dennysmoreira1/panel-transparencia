@@ -18,23 +18,21 @@ const Usuarios = () => {
     // Verificar permisos de forma simple
     const canAccess = user && user.rol === "admin";
 
-    // Datos de ejemplo para evitar errores de API
-    const usuariosEjemplo = [
-        { id: 1, username: "admin", email: "admin@transparencia.com", rol: "admin" },
-        { id: 2, username: "editor1", email: "editor1@transparencia.com", rol: "editor" },
-        { id: 3, username: "lector1", email: "lector1@transparencia.com", rol: "lector" },
-    ];
-
     useEffect(() => {
         if (canAccess) {
             setLoading(true);
-            // Simular carga de datos
+            // Datos de ejemplo para evitar errores de API
+            const usuariosEjemplo = [
+                { id: 1, username: "admin", email: "admin@transparencia.com", rol: "admin" },
+                { id: 2, username: "editor1", email: "editor1@transparencia.com", rol: "editor" },
+                { id: 3, username: "lector1", email: "lector1@transparencia.com", rol: "lector" },
+            ];
             setTimeout(() => {
                 setUsuarios(usuariosEjemplo);
                 setLoading(false);
             }, 500);
         }
-    }, [canAccess, usuariosEjemplo]);
+    }, [canAccess]);
 
     const exportarExcel = () => {
         const worksheet = XLSX.utils.json_to_sheet(usuarios);

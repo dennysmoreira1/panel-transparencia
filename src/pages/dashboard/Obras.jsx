@@ -15,89 +15,86 @@ export default function Obras() {
     const [filtroSector, setFiltroSector] = useState('');
     const [filtroEstado, setFiltroEstado] = useState('');
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
-
-    // Datos de ejemplo realistas
-    const obrasEjemplo = [
-        {
-            id: 1,
-            nombre: "Construcción de Centro Comunitario Sector Norte",
-            descripcion: "Centro comunitario con salón múltiple, oficinas administrativas y áreas recreativas",
-            sector: "Infraestructura",
-            estado: "En Progreso",
-            presupuesto: 45000000,
-            fecha_inicio: "2024-01-15",
-            fecha_fin: "2024-06-30",
-            progreso: 35,
-            ubicacion: "Sector Norte, Calle 15 #23-45",
-            contratista: "Constructora Norte S.A.",
-            documentos: 8
-        },
-        {
-            id: 2,
-            nombre: "Rehabilitación de Parque Municipal",
-            descripcion: "Mejora integral del parque central con nueva iluminación y mobiliario",
-            sector: "Espacios Públicos",
-            estado: "Finalizada",
-            presupuesto: 28000000,
-            fecha_inicio: "2023-10-01",
-            fecha_fin: "2024-01-31",
-            progreso: 100,
-            ubicacion: "Parque Central, Centro",
-            contratista: "Jardines y Paisajes Ltda.",
-            documentos: 12
-        },
-        {
-            id: 3,
-            nombre: "Ampliación de Red de Agua Potable",
-            descripcion: "Extensión de red de agua potable a barrios periféricos",
-            sector: "Servicios Públicos",
-            estado: "En Progreso",
-            presupuesto: 55000000,
-            fecha_inicio: "2024-02-15",
-            fecha_fin: "2024-08-30",
-            progreso: 60,
-            ubicacion: "Barrios Periféricos",
-            contratista: "Acueductos Regionales S.A.",
-            documentos: 15
-        },
-        {
-            id: 4,
-            nombre: "Sistema de Alumbrado Público LED",
-            descripcion: "Instalación de sistema de alumbrado público con tecnología LED",
-            sector: "Servicios Públicos",
-            estado: "Pendiente",
-            presupuesto: 32000000,
-            fecha_inicio: "2024-03-01",
-            fecha_fin: "2024-05-15",
-            progreso: 0,
-            ubicacion: "Zonas Residenciales",
-            contratista: "Energía Limpia Ltda.",
-            documentos: 6
-        },
-        {
-            id: 5,
-            nombre: "Construcción de Biblioteca Municipal",
-            descripcion: "Nueva biblioteca con salas de lectura y centro de cómputo",
-            sector: "Educación",
-            estado: "En Progreso",
-            presupuesto: 38000000,
-            fecha_inicio: "2024-01-20",
-            fecha_fin: "2024-07-31",
-            progreso: 45,
-            ubicacion: "Sector Educativo, Calle 20 #15-30",
-            contratista: "Constructora Educativa S.A.",
-            documentos: 10
-        }
-    ];
 
     useEffect(() => {
-        // Simular carga de datos
+        // Datos de ejemplo realistas
+        const obrasEjemplo = [
+            {
+                id: 1,
+                nombre: "Construcción de Centro Comunitario Sector Norte",
+                descripcion: "Centro comunitario con salón múltiple, oficinas administrativas y áreas recreativas",
+                sector: "Infraestructura",
+                estado: "En Progreso",
+                presupuesto: 45000000,
+                fecha_inicio: "2024-01-15",
+                fecha_fin: "2024-06-30",
+                progreso: 35,
+                ubicacion: "Sector Norte, Calle 15 #23-45",
+                contratista: "Constructora Norte S.A.",
+                documentos: 8
+            },
+            {
+                id: 2,
+                nombre: "Rehabilitación de Parque Municipal",
+                descripcion: "Mejora integral del parque central con nueva iluminación y mobiliario",
+                sector: "Espacios Públicos",
+                estado: "Finalizada",
+                presupuesto: 28000000,
+                fecha_inicio: "2023-10-01",
+                fecha_fin: "2024-01-31",
+                progreso: 100,
+                ubicacion: "Parque Central, Centro",
+                contratista: "Jardines y Paisajes Ltda.",
+                documentos: 12
+            },
+            {
+                id: 3,
+                nombre: "Ampliación de Red de Agua Potable",
+                descripcion: "Extensión de red de agua potable a barrios periféricos",
+                sector: "Servicios Públicos",
+                estado: "En Progreso",
+                presupuesto: 55000000,
+                fecha_inicio: "2024-02-15",
+                fecha_fin: "2024-08-30",
+                progreso: 60,
+                ubicacion: "Barrios Periféricos",
+                contratista: "Acueductos Regionales S.A.",
+                documentos: 15
+            },
+            {
+                id: 4,
+                nombre: "Sistema de Alumbrado Público LED",
+                descripcion: "Instalación de sistema de alumbrado público con tecnología LED",
+                sector: "Servicios Públicos",
+                estado: "Pendiente",
+                presupuesto: 32000000,
+                fecha_inicio: "2024-03-01",
+                fecha_fin: "2024-05-15",
+                progreso: 0,
+                ubicacion: "Zonas Residenciales",
+                contratista: "Energía Limpia Ltda.",
+                documentos: 6
+            },
+            {
+                id: 5,
+                nombre: "Construcción de Biblioteca Municipal",
+                descripcion: "Nueva biblioteca con salas de lectura y centro de cómputo",
+                sector: "Educación",
+                estado: "En Progreso",
+                presupuesto: 38000000,
+                fecha_inicio: "2024-01-20",
+                fecha_fin: "2024-07-31",
+                progreso: 45,
+                ubicacion: "Sector Educativo, Calle 20 #15-30",
+                contratista: "Constructora Educativa S.A.",
+                documentos: 10
+            }
+        ];
         setTimeout(() => {
             setObras(obrasEjemplo);
             setLoading(false);
         }, 1000);
-    }, [obrasEjemplo]);
+    }, []);
 
     const obrasFiltradas = obras.filter((obra) =>
         obra.nombre.toLowerCase().includes(filtroNombre.toLowerCase()) &&
@@ -134,22 +131,6 @@ export default function Obras() {
         const wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, 'Obras');
         XLSX.writeFile(wb, 'obras.xlsx');
-    };
-
-    const exportToPDF = () => {
-        const doc = new jsPDF();
-        doc.text('Listado de Obras', 14, 15);
-        doc.autoTable({
-            startY: 20,
-            head: [['Nombre', 'Sector', 'Estado', 'Presupuesto']],
-            body: obrasFiltradas.map((obra) => [
-                obra.nombre,
-                obra.sector,
-                obra.estado,
-                formatCurrency(obra.presupuesto)
-            ]),
-        });
-        doc.save('obras.pdf');
     };
 
     if (loading) {

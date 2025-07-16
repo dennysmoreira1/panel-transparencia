@@ -11,62 +11,60 @@ import {
 } from 'lucide-react';
 
 const Estadisticas = () => {
-    const { user } = useAuth();
+    // const { user } = useAuth(); // Eliminar si no se usa
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [filtros, setFiltros] = useState({ sector: '', estado: '', periodo: '2024' });
 
-    // Datos de ejemplo realistas y completos
-    const datosEjemplo = {
-        totalObras: 24,
-        totalContratos: 18,
-        totalPresupuesto: 285000000,
-        totalUsuarios: 156,
-        porEstado: {
-            'Finalizada': 12,
-            'En Progreso': 8,
-            'Pendiente': 4
-        },
-        porSector: [
-            { nombre: 'Infraestructura', Finalizada: 4, EnProgreso: 3, Pendiente: 1, presupuesto: 85000000 },
-            { nombre: 'Educación', Finalizada: 3, EnProgreso: 2, Pendiente: 1, presupuesto: 65000000 },
-            { nombre: 'Salud', Finalizada: 2, EnProgreso: 1, Pendiente: 1, presupuesto: 45000000 },
-            { nombre: 'Transporte', Finalizada: 2, EnProgreso: 1, Pendiente: 0, presupuesto: 55000000 },
-            { nombre: 'Servicios Públicos', Finalizada: 1, EnProgreso: 1, Pendiente: 1, presupuesto: 35000000 }
-        ],
-        sectoresDisponibles: ['Infraestructura', 'Educación', 'Salud', 'Transporte', 'Servicios Públicos'],
-        tendenciaMensual: [
-            { mes: 'Ene', obras: 2, contratos: 1, presupuesto: 15000000 },
-            { mes: 'Feb', obras: 3, contratos: 2, presupuesto: 25000000 },
-            { mes: 'Mar', obras: 4, contratos: 3, presupuesto: 35000000 },
-            { mes: 'Abr', obras: 5, contratos: 4, presupuesto: 45000000 },
-            { mes: 'May', obras: 6, contratos: 5, presupuesto: 55000000 },
-            { mes: 'Jun', obras: 7, contratos: 6, presupuesto: 65000000 },
-            { mes: 'Jul', obras: 8, contratos: 7, presupuesto: 75000000 },
-            { mes: 'Ago', obras: 9, contratos: 8, presupuesto: 85000000 },
-            { mes: 'Sep', obras: 10, contratos: 9, presupuesto: 95000000 },
-            { mes: 'Oct', obras: 11, contratos: 10, presupuesto: 105000000 },
-            { mes: 'Nov', obras: 12, contratos: 11, presupuesto: 115000000 },
-            { mes: 'Dic', obras: 13, contratos: 12, presupuesto: 125000000 }
-        ],
-        distribucionPresupuesto: [
-            { sector: 'Infraestructura', porcentaje: 30, monto: 85000000 },
-            { sector: 'Educación', porcentaje: 23, monto: 65000000 },
-            { sector: 'Salud', porcentaje: 16, monto: 45000000 },
-            { sector: 'Transporte', porcentaje: 19, monto: 55000000 },
-            { sector: 'Servicios Públicos', porcentaje: 12, monto: 35000000 }
-        ]
-    };
-
-    const colores = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'];
-
     useEffect(() => {
-        // Simular carga de datos
+        // Datos de ejemplo realistas y completos
+        const datosEjemplo = {
+            totalObras: 24,
+            totalContratos: 18,
+            totalPresupuesto: 285000000,
+            totalUsuarios: 156,
+            porEstado: {
+                'Finalizada': 12,
+                'En Progreso': 8,
+                'Pendiente': 4
+            },
+            porSector: [
+                { nombre: 'Infraestructura', Finalizada: 4, EnProgreso: 3, Pendiente: 1, presupuesto: 85000000 },
+                { nombre: 'Educación', Finalizada: 3, EnProgreso: 2, Pendiente: 1, presupuesto: 65000000 },
+                { nombre: 'Salud', Finalizada: 2, EnProgreso: 1, Pendiente: 1, presupuesto: 45000000 },
+                { nombre: 'Transporte', Finalizada: 2, EnProgreso: 1, Pendiente: 0, presupuesto: 55000000 },
+                { nombre: 'Servicios Públicos', Finalizada: 1, EnProgreso: 1, Pendiente: 1, presupuesto: 35000000 }
+            ],
+            sectoresDisponibles: ['Infraestructura', 'Educación', 'Salud', 'Transporte', 'Servicios Públicos'],
+            tendenciaMensual: [
+                { mes: 'Ene', obras: 2, contratos: 1, presupuesto: 15000000 },
+                { mes: 'Feb', obras: 3, contratos: 2, presupuesto: 25000000 },
+                { mes: 'Mar', obras: 4, contratos: 3, presupuesto: 35000000 },
+                { mes: 'Abr', obras: 5, contratos: 4, presupuesto: 45000000 },
+                { mes: 'May', obras: 6, contratos: 5, presupuesto: 55000000 },
+                { mes: 'Jun', obras: 7, contratos: 6, presupuesto: 65000000 },
+                { mes: 'Jul', obras: 8, contratos: 7, presupuesto: 75000000 },
+                { mes: 'Ago', obras: 9, contratos: 8, presupuesto: 85000000 },
+                { mes: 'Sep', obras: 10, contratos: 9, presupuesto: 95000000 },
+                { mes: 'Oct', obras: 11, contratos: 10, presupuesto: 105000000 },
+                { mes: 'Nov', obras: 12, contratos: 11, presupuesto: 115000000 },
+                { mes: 'Dic', obras: 13, contratos: 12, presupuesto: 125000000 }
+            ],
+            distribucionPresupuesto: [
+                { sector: 'Infraestructura', porcentaje: 30, monto: 85000000 },
+                { sector: 'Educación', porcentaje: 23, monto: 65000000 },
+                { sector: 'Salud', porcentaje: 16, monto: 45000000 },
+                { sector: 'Transporte', porcentaje: 19, monto: 55000000 },
+                { sector: 'Servicios Públicos', porcentaje: 12, monto: 35000000 }
+            ]
+        };
         setTimeout(() => {
             setData(datosEjemplo);
             setLoading(false);
         }, 1000);
-    }, [datosEjemplo]);
+    }, []);
+
+    const colores = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'];
 
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('es-CO', {
