@@ -20,10 +20,11 @@ const login = async (req, res) => {
         const isProduction = process.env.NODE_ENV === 'production';
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
-            secure: isProduction,
-            sameSite: isProduction ? "Strict" : "Lax",
+            secure: true, // Siempre true en producción
+            sameSite: 'none', // Siempre none para cross-domain
             maxAge: 7 * 24 * 60 * 60 * 1000,
-            domain: isProduction ? undefined : "localhost"
+            path: '/',
+            // domain: isProduction ? undefined : "localhost"
         });
 
         res.json({
