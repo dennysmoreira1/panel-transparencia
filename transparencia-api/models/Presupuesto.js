@@ -1,8 +1,8 @@
 // models/Presupuesto.js
 const { DataTypes } = require('sequelize');
-const db = require('../config/db');
+const { sequelize } = require('../config/db');
 
-const Presupuesto = db.define('Presupuesto', {
+const Presupuesto = sequelize.define('Presupuesto', {
     nombre: {
         type: DataTypes.STRING,
         allowNull: false

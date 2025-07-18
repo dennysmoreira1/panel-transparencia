@@ -1,5 +1,4 @@
-const { Pool } = require("../config/db");
-const pool = new Pool(); // Solo si no lo estás reutilizando
+const { pool } = require("../config/db");
 
 module.exports = {
     async getAll() {
