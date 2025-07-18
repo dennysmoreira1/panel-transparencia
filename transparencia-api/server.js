@@ -8,6 +8,21 @@ const cookieParser = require("cookie-parser");
 
 dotenv.config();
 
+// Debug: verificar variables de entorno
+console.log("=== DEBUG SERVIDOR ===");
+console.log("DATABASE_URL:", process.env.DATABASE_URL ? "CONFIGURADA" : "NO CONFIGURADA");
+console.log("PORT:", process.env.PORT || 5000);
+console.log("NODE_ENV:", process.env.NODE_ENV || "development");
+console.log("[DEBUG] Valor de process.env.DATABASE_URL:", process.env.DATABASE_URL);
+
+// TEMPORAL: Forzar redeploy para verificar configuración
+console.log("REDEPLOY FORZADO - Verificando configuración...");
+console.log("DEPLOY FORZADO - " + new Date().toISOString());
+
+// LOG CRÍTICO PARA DEBUG
+console.log("🚨 LOG CRÍTICO - DATABASE_URL VALUE:", process.env.DATABASE_URL ? "EXISTE" : "NO EXISTE");
+console.log("🚨 LOG CRÍTICO - DATABASE_URL LENGTH:", process.env.DATABASE_URL ? process.env.DATABASE_URL.length : 0);
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -15,7 +30,7 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:3000",
-    "https://marvelous-crepe-5b3818.netlify.app" // <--- Agregado tu dominio de Netlify
+    "https://marvelous-crepe-5b3818.netlify.app"
 ];
 
 app.use(
@@ -40,7 +55,13 @@ app.use(express.urlencoded({ extended: true }));
 
 /* --------------  Conexión Sequelize (solo para Usuario) -------------- */
 const { sequelize } = require("./config/db");
-require("./models/Usuario"); // Agrega otros modelos Sequelize aquí si los usas
+
+// Cargar todos los modelos
+require("./models/Usuario");
+require("./models/Sector");
+require("./models/Obra");
+require("./models/Presupuesto");
+require("./models/Archivo");
 
 /* --------------------------  Archivos estáticos --------------------- */
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
@@ -116,13 +137,26 @@ app.use(errorHandler);
 
 /* --------------------------  Iniciar servidor ----------------------- */
 app.listen(PORT, async () => {
+    console.log("🔍 === INICIO CONEXIÓN BD ===");
+
     try {
+        console.log("🔄 Intentando conectar con la base de datos...");
         await sequelize.authenticate();
+        console.log("✅ Autenticación exitosa");
+
+        console.log("🔄 Sincronizando modelos...");
         await sequelize.sync(); // si usas Sequelize solo para usuarios
+        console.log("✅ Sincronización exitosa");
+
         console.log("✅ Conexión establecida con PostgreSQL");
     } catch (error) {
         console.error("❌ Error al conectar con la base de datos:", error.message);
+        console.error("🔍 Detalles del error:", error);
+        console.error("🔍 Stack trace:", error.stack);
     }
 
+    console.log("🔍 === FIN CONEXIÓN BD ===");
     console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });
+
+// Forzar redeploy - comentario temporal
